@@ -1,0 +1,74 @@
+
+                <!--Data Binding-->
+                <!--export class livre {
+                        idLivre : number;
+                        isbnLivre : number;
+                        titreLivre : string;
+                        auteurLivre : string;
+                        prixLivre : number;
+                        datePublication : Date ;}-->
+
+    <div class="container">
+        <div>
+        <h2>Modifier un Livre :</h2>
+        </div>
+        <form >
+            
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >ID Livre</label>
+            <input disabled type="text" [(ngModel)]="currentLivre.idLivre"
+            name="idLivre" class="form-control">
+            </div>
+    <br/>    
+            <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >ISBN Livre</label>
+            <input type="text" [(ngModel)]="currentLivre.isbnLivre"
+            name="isbnLivre" class="form-control">
+            </div>
+    <br/>
+            <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Titre Livre</label>
+            <input type="text"[(ngModel)]= "currentLivre.titreLivre"
+            name="titreLivre" class="form-control">
+            </div>
+    <br/>
+            <div class="col-sm-4 col-md-4 col-lg-4" >
+                <label >Auteur Livre</label>
+                <input type="text"[(ngModel)]= "currentLivre.auteurLivre"
+                name="auteurLivre" class="form-control">
+                </div>
+    <br/>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Prix Livre</label>
+            <input type="number" [(ngModel)]= "currentLivre.prixLivre"
+            name="prixLivre" class="form-control">
+            </div>
+    <br/>
+
+<!--| date: 'yyyy-MM-dd'-->
+           <div class="col-sm-4 col-md-4 col-lg-4">
+                <label >Date Publication</label> 
+                <input type="date" [ngModel]= "currentLivre.datePublication | date: 'yyyy-MM-dd'" 
+                (ngModelChange)="currentLivre.datePublication= $event"
+                name="datePublication" class="form-control">
+            </div>
+    <br/>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label >Genre :</label>
+              <!--Genre-->
+                <select class="form-control form-control-lg" id="idGen" name="idGen" [(ngModel)]="currentLivre.genre.idGen">
+                        <option *ngFor="let gen of genres" [value]="gen.idGen">
+                                {{gen.nomGen}}
+                        </option>
+                </select>
+              <!--Genre-->
+        </div>
+
+    <br/>
+            <div class="mt-2">
+            <button type="submit" (click)="updateLivre()" class="btn btn-success">Modifer</button>
+            </div>
+        
+        </form>
+    </div>

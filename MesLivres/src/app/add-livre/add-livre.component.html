@@ -1,0 +1,76 @@
+
+<div class="container">
+    <div>
+    <h2>Ajouter un Livre :</h2>
+    </div>
+    <form >
+        
+            <!--Data Binding-->
+            <!--export class livre {
+                    idLivre : number;
+                    isbnLivre : number;
+                    titreLivre : string;
+                    auteurLivre : string;
+                    prixLivre : number;
+                    datePublication : Date ;}-->
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID Livre</label>
+        <input type="text" [(ngModel)]="newLivre.idLivre"
+        name="idLivre" class="form-control">
+        </div>
+<br/>     
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >ISBN Livre</label>
+        <input type="text" [(ngModel)]="newLivre.isbnLivre"
+        name="isbnLivre" class="form-control">
+        </div>
+<br/>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Titre Livre</label>
+        <input type="text"[(ngModel)]= "newLivre.titreLivre"
+        name="titreLivre" class="form-control">
+        </div>
+<br/>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Auteur Livre</label>
+            <input type="text"[(ngModel)]= "newLivre.auteurLivre"
+            name="auteurLivre" class="form-control">
+            </div>
+<br/>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Prix Livre</label>
+        <input type="number" [(ngModel)]= "newLivre.prixLivre"
+        name="prixLivre" class="form-control">
+        </div>
+<br/>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date Création</label>
+        <input type="date" [(ngModel)]= "newLivre.datePublication"
+        name="datePublication" class="form-control">
+        </div>
+<br/>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Genre</label>
+
+        <!--Genre-->
+        <select class="form-control form-control-lg" id="idGen" name="idGen"
+        [(ngModel)]="newIdGen">
+        <option *ngFor="let gen of genres" [value]="gen.idGen" >
+        {{gen.nomGen}}
+        </option>
+        </select>
+        <!--Genre-->
+
+        </div>
+
+<br/>
+        <div class="mt-2">
+        <button type="submit" (click)="addLivre()" class="btn btn-success">Ajouter</button>
+        </div>
+<br/>
+        <div>
+        <h3>{{message}}</h3>
+        </div>
+
+    </form>
+</div>

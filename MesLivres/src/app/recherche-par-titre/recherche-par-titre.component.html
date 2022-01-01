@@ -1,0 +1,59 @@
+
+<div class="container">  
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Titre : </label>
+
+        <!--<select class="form-control form-control-lg" id="idGen" name="idGen" 
+            [(ngModel)]="idGenre" (change)="onChange()">-->
+
+        <div class="search-hero">
+            <input class="form-control" type="text" id="titreLi" name="titreL" [(ngModel)]="ch" (change)="onChange()"
+                autocomplete="off" placeholder="&#61442;  Chercher un livre par son titre">
+        </div>
+    </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <table border="3" class=lignesEspacees>
+                    <thead>
+                        <tr>
+                            <th scope="col">&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <th scope="col">&nbsp;ISBN&nbsp;</th>
+                            <th scope="col">&nbsp;Titre&nbsp;</th>
+                            <th scope="col">&nbsp;&nbsp;&nbsp;Auteur&nbsp;</th>
+                            <th scope="col">&nbsp;Prix&nbsp;</th>
+                            <th scope="col">&nbsp;Publication&nbsp;</th>
+                            <th scope="col">&nbsp;Genre&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <!--export class livre {
+                        idLivre : number;
+                        isbnLivre : number;
+                        titreLivre : string;
+                        auteurLivre : string;
+                        prixLivre : number;
+                        datePublication : Date ;}-->
+                    <!--Data Binding-->
+                    <tbody *ngFor="let l of livres">
+                        <tr>
+                            <!--Data Binding-->
+                            <td scope="row">{{l.idLivre}}</td>
+                            <td> {{l.isbnLivre}} </td>
+                            <td scope="row"> {{l.titreLivre}} </td>
+    
+                            <td> {{l.auteurLivre}} </td>
+                            <td scope="row"> {{l.prixLivre}} </td>
+                            <td> {{l.datePublication | date:'dd/MM/yyyy'}}</td>
+                            <!--Genre-->
+                            <td >{{l.genre.nomGen}}</td>
+                            <!--Genre-->
+                            <!--<td scope="row1"><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerLivre(l)">Supprimer</a></td>
+                            <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateLivre',l.idLivre]">Modifier</a></td>-->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
